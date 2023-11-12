@@ -41,10 +41,9 @@ python post_process.py
 ```
 
 
-#### 6. Model Fusion
-Fusion of the above trained models.
+#### 6. Prediction
 ```
-python model_fuse.py
+python predict.py
 ```
 
 
