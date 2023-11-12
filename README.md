@@ -31,7 +31,7 @@ python train.py
 #### 4. Feature Extraction
 Here the feature extraction is performed on our trained model for query and gallery.
 ```
-python  predict.py 
+python  fea.py 
 ```
 
 #### 5. Feature Enhancement
@@ -39,6 +39,7 @@ Feature enhancement is performed separately for the trained model.We use the pyr
 ```
 python post_process.py 
 ```
+
 
 #### 6. Model Fusion
 Fusion of the above trained models.
