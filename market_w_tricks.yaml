@@ -1,0 +1,45 @@
+index:
+  feature_names: ['output']
+
+  # dim_processors:
+  #   names: ["L2Normalize"]
+
+  dim_processors:
+    names: ["L2Normalize", "PCA", "L2Normalize"]
+    PCA:
+      proj_dim: 560
+      whiten: True
+      train_fea_dir: "/home/data1/zgp/mmsport/2022-winners-player-reidentification-challenge-master/fea/test_vit_l_openai_colorjitetr_refea"
+      l2: True
+
+
+  feature_enhancer:
+    name: "DBA"  # "Identity" / "DBA"
+    DBA: 
+      enhance_k: 5  # number of the nearest points to be calculated.
+
+  metric:
+    name: "KNN"
+  
+  re_ranker:
+    name: "QE"  # "Identity"
+    QE:
+      qe_times: 1  # number of query expansion times.
+      qe_k: 1 # number of the neighbors to be combined.
+
+  # re_ranker:
+  #   name: "KReciprocal"
+  #   KReciprocal:
+  #     k1: 20  # hyper-parameter for calculating jaccard distance.
+  #     k2: 6  # hyper-parameter for calculating local query expansion.
+  #     lambda_value: 0.3  # hyper-parameter for calculating the final distance.
+
+  # re_ranker:
+  #   name: "QEKR"
+  #   QEKR:
+  #     qe_times: 1  # number of query expansion times.
+  #     qe_k: 1  # number of the neighbors to be combined.
+  #     k1: 30  # hyper-parameter for calculating jaccard distance.    20->30->15
+  #     k2: 3  # hyper-parameter for calculating local query expansion.   6->3->6
+  #     lambda_value: 0.6  # hyper-parameter for calculating the final distance.
+
